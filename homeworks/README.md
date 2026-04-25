@@ -60,8 +60,11 @@ https://hub.docker.com/repository/docker/martelov/custom-nginx/general
 10. Проверьте вывод команд: ```ss -tlpn | grep 127.0.0.1:8080``` , ```docker port custom-nginx-t2```, ```curl http://127.0.0.1:8080```. Кратко объясните суть возникшей проблемы.
 11. * Это дополнительное, необязательное задание. Попробуйте самостоятельно исправить конфигурацию контейнера, используя доступные источники в интернете. Не изменяйте конфигурацию nginx и не удаляйте контейнер. Останавливать контейнер можно. [пример источника](https://www.baeldung.com/linux/assign-port-docker-container)
 12. Удалите запущенный контейнер "custom-nginx-t2", не останавливая его.(воспользуйтесь --help или google)
-
 В качестве ответа приложите скриншоты консоли, где видно все введенные команды и их вывод.
+
+## ОТВЕТ ЗАДАЧА 3
+<img width="863" height="847" alt="image" src="https://github.com/user-attachments/assets/a9d421ed-ec35-4df0-b7b2-aa0bea1992f4" />
+<img width="1121" height="580" alt="image" src="https://github.com/user-attachments/assets/bb5af0a6-d985-4bc6-924c-5567ce9c9508" />
 
 ## Задача 4
 
@@ -71,9 +74,11 @@ https://hub.docker.com/repository/docker/martelov/custom-nginx/general
 - Подключитесь к первому контейнеру с помощью ```docker exec``` и создайте текстовый файл любого содержания в ```/data```.
 - Добавьте ещё один файл в текущий каталог ```$(pwd)``` на хостовой машине.
 - Подключитесь во второй контейнер и отобразите листинг и содержание файлов в ```/data``` контейнера.
-
-
 В качестве ответа приложите скриншоты консоли, где видно все введенные команды и их вывод.
+
+## ОТВЕТ ЗАДАЧА 4
+<img width="828" height="646" alt="image" src="https://github.com/user-attachments/assets/da481b38-5560-4c4f-8fb7-c432c8a10c8c" />
+
 
 
 ## Задача 5
@@ -122,9 +127,18 @@ services:
 7. Удалите любой из манифестов компоуза(например compose.yaml).  Выполните команду "docker compose up -d". Прочитайте warning, объясните суть предупреждения и выполните предложенное действие. Погасите compose-проект ОДНОЙ(обязательно!!) командой.
 
 В качестве ответа приложите скриншоты консоли, где видно все введенные команды и их вывод, файл compose.yaml , скриншот portainer c задеплоенным компоузом.
+## ОТВЕТ ЗАДАЧА 5
+
 
 ---
+<img width="1037" height="586" alt="image" src="https://github.com/user-attachments/assets/dbe0da80-cda5-4fee-8c06-d8544ce2d6b7" />
+<img width="1121" height="319" alt="image" src="https://github.com/user-attachments/assets/dc872069-c52e-45cf-971c-2920aba86458" />
+<img width="1110" height="808" alt="image" src="https://github.com/user-attachments/assets/97390eff-4d24-4f80-8224-ffa0edfdce71" />
+<img width="1041" height="141" alt="image" src="https://github.com/user-attachments/assets/b29eaef3-bd36-4f7f-9914-247dddca66e1" />
+<img width="467" height="703" alt="image" src="https://github.com/user-attachments/assets/6bee8d37-8038-4c41-8437-efddc8b339be" />
 
+
+Registry не запустится, потому что его описание лежит во втором файле. Docker ставит приритеты на запуск по имени файла 
 ### Правила приема
 
 Домашнее задание выполните в файле readme.md в GitHub-репозитории. В личном кабинете отправьте на проверку ссылку на .md-файл в вашем репозитории.
