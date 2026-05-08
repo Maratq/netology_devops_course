@@ -57,17 +57,15 @@
 Скачайте docker образ ```hashicorp/terraform:latest``` и скопируйте бинарный файл ```/bin/terraform``` на свою локальную машину, используя dive и docker save.
 Предоставьте скриншоты  действий .
 ## ОТВЕТ Задача 6
+<img width="909" height="307" alt="image" src="https://github.com/user-attachments/assets/f9e060c9-a84c-47b8-9c5d-0576b841d24e" />
+
 <img width="810" height="461" alt="image" src="https://github.com/user-attachments/assets/947bd7db-3d7d-43ea-b249-0803ea082519" />
 
 
 ## Задача 6.1
 Добейтесь аналогичного результата, используя docker cp.  
 Предоставьте скриншоты  действий .
+## ОТВЕТ Задача 6.1
+<img width="810" height="461" alt="image" src="https://github.com/user-attachments/assets/947bd7db-3d7d-43ea-b249-0803ea082519" />
 
-## Задача 6.2 (**)
-Предложите способ извлечь файл из контейнера, используя только команду docker build и любой Dockerfile.  
-Предоставьте скриншоты  действий .
 
-## Задача 7 (***)
-Запустите ваше python-приложение с помощью runC, не используя docker или containerd.  
-Предоставьте скриншоты  действий .
