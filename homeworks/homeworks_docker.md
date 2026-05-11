@@ -52,11 +52,68 @@
 ## ОТВЕТ Задача 4 
 <img width="993" height="105" alt="image" src="https://github.com/user-attachments/assets/53119d8d-f4d1-4000-9e3e-6a8ca4b1f456" />
 https://github.com/Maratq/shvirtd-example-python
+
 ## Задача 5 (*)
 1. Напишите и задеплойте на вашу облачную ВМ bash скрипт, который произведет резервное копирование БД mysql в директорию "/opt/backup" с помощью запуска в сети "backend" контейнера из образа ```schnitzler/mysqldump``` при помощи ```docker run ...``` команды. Подсказка: "документация образа."
 2. Протестируйте ручной запуск
 3. Настройте выполнение скрипта раз в 1 минуту через cron, crontab или systemctl timer. Придумайте способ не светить логин/пароль в git!!
 4. Предоставьте скрипт, cron-task и скриншот с несколькими резервными копиями в "/opt/backup"
+## ОТВЕТ Задача 5 
+```
+#!/bin/bash
+
+# Загрузка паролей из защищенного файла
+source /etc/mysql-backup/.env
+
+BACKUP_DIR="/opt/backup"
+TIMESTAMP=$(date +%Y%m%d_%H%M%S)
+BACKUP_FILE="$BACKUP_DIR/backup_${MYSQL_DATABASE}_${TIMESTAMP}.sql.gz"
+LOG_FILE="/var/log/backup.log"
+
+log() {
+    echo "[$(date '+%Y-%m-%d %H:%M:%S')] $1" | tee -a $LOG_FILE
+}
+
+log "🚀 Запуск бэкапа БД: $MYSQL_DATABASE"
+
+# Определение сети Docker
+NETWORK_NAME=$(docker network ls --filter name=backend -q | head -1)
+[ -z "$NETWORK_NAME" ] && NETWORK_NAME=$(docker network ls --filter name=shvirtd-example-python_backend -q | head -1)
+
+if [ -z "$NETWORK_NAME" ]; then
+    log "❌ Ошибка: сеть не найдена"
+    exit 1
+fi
+
+# Выполнение бэкапа
+docker run --rm \
+    --network $NETWORK_NAME \
+    -v $BACKUP_DIR:/backup \
+    -e MYSQL_PWD="$MYSQL_ROOT_PASSWORD" \
+    schnitzler/mysqldump \
+    -h db \
+    -u root \
+    --databases $MYSQL_DATABASE \
+    --single-transaction \
+    --routines \
+    --triggers 2>/dev/null | gzip > $BACKUP_FILE
+
+# Проверка
+if [ $? -eq 0 ] && [ -s $BACKUP_FILE ]; then
+    SIZE=$(du -h $BACKUP_FILE | cut -f1)
+    log "✅ Бэкап создан: $(basename $BACKUP_FILE) (размер: $SIZE)"
+    
+    # Удаление бэкапов старше 7 дней
+    find $BACKUP_DIR -name "backup_*.sql.gz" -mtime +7 -delete
+else
+    log "❌ Ошибка создания бэкапа"
+    rm -f $BACKUP_FILE
+    exit 1
+fi
+
+log "✅ Завершено"
+```
+<img width="629" height="301" alt="image" src="https://github.com/user-attachments/assets/39080210-f022-4fa5-92d4-0c3ee9f6f678" />
 
 ## Задача 6
 Скачайте docker образ ```hashicorp/terraform:latest``` и скопируйте бинарный файл ```/bin/terraform``` на свою локальную машину, используя dive и docker save.
