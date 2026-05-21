@@ -19,6 +19,12 @@ terraform-home<img width="1185" height="912" alt="image" src="https://github.com
 
 Уничтожьте созданные ресурсы с помощью terraform. Убедитесь, что все ресурсы удалены. Приложите содержимое файла terraform.tfstate.
 Объясните, почему при этом не был удалён docker-образ nginx:latest. Ответ ОБЯЗАТЕЛЬНО НАЙДИТЕ В ПРЕДОСТАВЛЕННОМ КОДЕ, а затем ОБЯЗАТЕЛЬНО ПОДКРЕПИТЕ строчкой из документации terraform провайдера docker. (ищите в классификаторе resource docker_image )
+resource "docker_image" {
+  name         = "nginx:latest"
+  keep_locally = true
+}
+
 
 <img width="642" height="392" alt="image" src="https://github.com/user-attachments/assets/6e9a2108-2374-4cdb-bb68-3524dc457825" />
+
 keep_locally - (Optional, boolean) If true, then the Docker image won't be deleted on destroy operation. If this is false, it will delete the image from the docker local storage on destroy operation.
