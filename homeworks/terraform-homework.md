@@ -2,7 +2,7 @@
 
 
 Выполните код проекта. Найдите в state-файле секретное содержимое созданного ресурса random_password, пришлите в качестве ответа конкретный ключ и его значение.   
-"result": "Zaft0uZu5J9zMLZs",
+```"result": "Zaft0uZu5J9zMLZs",```
 
 Раскомментируйте блок кода, примерно расположенный на строчках 29–42 файла main.tf. Выполните команду terraform validate. Объясните, в чём заключаются намеренно допущенные ошибки. Исправьте их.
 Выполните код. В качестве ответа приложите: исправленный фрагмент кода и вывод команды docker ps.
@@ -19,10 +19,11 @@ terraform-home<img width="1185" height="912" alt="image" src="https://github.com
 
 Уничтожьте созданные ресурсы с помощью terraform. Убедитесь, что все ресурсы удалены. Приложите содержимое файла terraform.tfstate.
 Объясните, почему при этом не был удалён docker-образ nginx:latest. Ответ ОБЯЗАТЕЛЬНО НАЙДИТЕ В ПРЕДОСТАВЛЕННОМ КОДЕ, а затем ОБЯЗАТЕЛЬНО ПОДКРЕПИТЕ строчкой из документации terraform провайдера docker. (ищите в классификаторе resource docker_image )
-resource "docker_image" {
+```resource "docker_image" {
   name         = "nginx:latest"
   keep_locally = true
 }
+```
 
 
 <img width="642" height="392" alt="image" src="https://github.com/user-attachments/assets/6e9a2108-2374-4cdb-bb68-3524dc457825" />
