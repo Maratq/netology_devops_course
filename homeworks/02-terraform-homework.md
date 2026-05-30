@@ -63,6 +63,9 @@ core_fraction = 5 — гарантирует лишь 5% производите�
 1. Создайте в корне проекта файл 'vms_platform.tf' . Перенесите в него все переменные первой ВМ.
 2. Скопируйте блок ресурса и создайте с его помощью вторую ВМ в файле main.tf: **"netology-develop-platform-db"** ,  ```cores  = 2, memory = 2, core_fraction = 20```. Объявите её переменные с префиксом **vm_db_** в том же файле ('vms_platform.tf').  ВМ должна работать в зоне "ru-central1-b"
 3. Примените изменения.
+### ОТВЕТ Задание 3
+<img width="605" height="337" alt="image" src="https://github.com/user-attachments/assets/db5147e4-07cc-4d9a-bed4-4636df1d111e" />
+<img width="1439" height="205" alt="image" src="https://github.com/user-attachments/assets/ffc7cc11-74ac-4e6b-8b39-2b8b0ecc5d60" />
 
 
 ### Задание 4
@@ -71,14 +74,17 @@ core_fraction = 5 — гарантирует лишь 5% производите�
 2. Примените изменения.
 
 В качестве решения приложите вывод значений ip-адресов команды ```terraform output```.
+### ОТВЕТ Задание 4
 
+<img width="454" height="309" alt="image" src="https://github.com/user-attachments/assets/e0a91f5e-6481-4b84-b567-19d0b15062e2" />
 
 ### Задание 5
 
 1. В файле locals.tf опишите в **одном** local-блоке имя каждой ВМ, используйте интерполяцию ${..} с НЕСКОЛЬКИМИ переменными по примеру из лекции.
 2. Замените переменные внутри ресурса ВМ на созданные вами local-переменные.
 3. Примените изменения.
-
+### ОТВЕТ Задание 5
+<img width="834" height="501" alt="image" src="https://github.com/user-attachments/assets/7950e552-e750-4d0e-9da3-aa5c87b4041a" />
 
 ### Задание 6
 
@@ -115,6 +121,10 @@ core_fraction = 5 — гарантирует лишь 5% производите�
   
 5. Найдите и закоментируйте все, более не используемые переменные проекта.
 6. Проверьте terraform plan. Изменений быть не должно.
+### ОТВЕТ Задание 6
+<img width="815" height="202" alt="image" src="https://github.com/user-attachments/assets/9514a7da-44c1-4aed-ab38-b5a2e9b2e616" />
+<img width="1013" height="278" alt="image" src="https://github.com/user-attachments/assets/1011d5ef-0c1c-4756-9ccd-fbf819ab2e54" />
+<img width="1093" height="926" alt="image" src="https://github.com/user-attachments/assets/8d35f636-2ddf-4c49-98ab-e96c49dd4b31" />
 
 ------
 
